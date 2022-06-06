@@ -1,11 +1,11 @@
 # Bot-Instagram-Comentarios
  
- Bot para comentários no instagram com interface gráfica
- Colocar dados do usuário (login e senha) para login automático, onde foi adicionado 30 segundos após login, para os que possuem verificação em 2 etapas.
- Colocar o link da foto do instagram para o BOT procurar as pessoas que curtiram e criar uma lista com esses nomes.
- Escrever o comentário que gostaria de postar nas fotos.
- Para evitar erros, foi adicionado um campo para digitar seu próprio nome de usuário, assim evitando o BOT de adicionar seu perfil a lista de curtidas e posteriormente publicar comentário.
- Digitar um número para o BOT rolar a página para baixo, para carregar o máximo de pessoas possível.
+ - Bot para comentários no instagram com interface gráfica
+ - Colocar dados do usuário (login e senha) para login automático, onde foi adicionado 30 segundos após login, para os que possuem verificação em 2 etapas.
+ - Colocar o link da foto do instagram para o BOT procurar as pessoas que curtiram e criar uma lista com esses nomes.
+ - Escrever o comentário que gostaria de postar nas fotos.
+ - Para evitar erros, foi adicionado um campo para digitar seu próprio nome de usuário, assim evitando o BOT de adicionar seu perfil a lista de curtidas e posteriormente publicar comentário.
+ - Digitar um número para o BOT rolar a página para baixo, para carregar o máximo de pessoas possível.
 
 ## O BOT funciona da seguinte maneira:
 
