@@ -1,4 +1,4 @@
-# Bot-Instagram-Comentarios
+# Bot-Instagram-Comentarios / funciona com Chrome
  
  - Bot para comentários no instagram com interface gráfica
  - Colocar dados do usuário (login e senha) para login automático, onde foi adicionado 30 segundos após login, para os que possuem verificação em 2 etapas.
