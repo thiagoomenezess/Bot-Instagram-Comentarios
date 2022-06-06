@@ -78,7 +78,7 @@ def comentar(pagina, comentario):
     except:
         pass
 
-def login_automatico(tempo):
+def login_automatico(tempo, pagina, login, senha):
     # Abrir navegador na página pretendida
     pagina.goto("https://www.instagram.com/")
     # Selecionar o campo de login e clicar
