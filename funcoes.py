@@ -73,13 +73,14 @@ def navegar_pagina_pessoa_comentar(pagina, lista_de_quem_curtiu_com_tratamento, 
             pass
         # pagina.locator('//*[@aria-label="Adicione um comentário..."]').click()
         comentar(pagina, random.choice(comentario))
+        time.sleep(2)
 
 def comentar(pagina, comentario):
     try:
         #O comando type faz com que o sistema digite tecla por tecla, simulando uma reação mais humana
         pagina.type('//*[@aria-label="Adicione um comentário..."]', comentario, delay=100)
         pagina.keyboard.down("Enter")
-        time.sleep(1)
+        time.sleep(2)
     except:
         pass
 
