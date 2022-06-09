@@ -3,7 +3,7 @@ import funcoes as f
 import time
 import PySimpleGUI as sg
 
-versao = 1.0
+versao = 1.1
 
 sg.theme("Reddit")
 layout = [
