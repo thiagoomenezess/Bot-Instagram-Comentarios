@@ -25,7 +25,7 @@ layout = [
     [sg.Text("Feito por Thiago", font=('Helvetica', 8, 'italic'))]
 ]
 
-janela = sg.Window(f"Robô Instagram {versao} / Curtidas", layout)
+janela = sg.Window(f"Robô Instagram {versao} / Comentários", layout)
 
 while True:
     evento, valores = janela.read()
