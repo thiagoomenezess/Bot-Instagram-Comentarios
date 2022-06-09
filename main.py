@@ -11,8 +11,10 @@ layout = [
     [sg.Text("Senha do Instagram: "), sg.InputText(key="senha", password_char="*", size=(35, 1))],
     [sg.Text("Link da página da foto que deseja buscar as curtidas: ")],
     [sg.InputText(key="link", size=(55, 1))],
-    [sg.Text("Digite o comentário que gostaria de fazer nas fotos: ")],
-    [sg.Multiline("", key="comentario", size=(40,4))],
+    [sg.Text("Digite até 3 comentários diferentes que gostaria de fazer nas fotos: ")],
+    [sg.Multiline("", key="comentario1", size=(40,3))],
+    [sg.Multiline("", key="comentario2", size=(40,3))],
+    [sg.Multiline("", key="comentario3", size=(40,3))],
     [sg.Text("Para evitar erros, digite abaixo seu nome de usuário no instagram, sem o @:")],
     [sg.InputText(key="conta_erro", size=(35, 1))],
     [sg.Text("Digite o número de páginas para buscar:")],
@@ -37,14 +39,16 @@ while True:
         link = valores["link"]
         conta_pessoal_para_evitar_erro = valores["conta_erro"]
         rolar_para_baixo = int(valores["paginas"])
-        comentario = valores["comentario"]
+        comentario1 = valores["comentario1"]
+        comentario2 = valores["comentario2"]
+        comentario3 = valores["comentario3"]
+        comentarios = [comentario1, comentario2, comentario3]
         tempo = 30
-
         with sync_playwright() as p:
-            navegador = p.chromium.launch_persistent_context("user_data_dir", headless=False)
+            navegador = p.chromium.launch(channel= "Chrome", headless=False)
             pagina = navegador.new_page()
 
-            # f.login_automatico(tempo, pagina, login, senha)
+            f.login_automatico(tempo, pagina, login, senha)
 
             pagina.goto(link)
 
@@ -67,7 +71,7 @@ while True:
                                                                                              conta_pessoal_para_evitar_erro)
 
 
-            f.navegar_pagina_pessoa_comentar(pagina, lista_de_quem_curtiu_com_tratamento, comentario)
+            f.navegar_pagina_pessoa_comentar(pagina, lista_de_quem_curtiu_com_tratamento, comentarios)
 
     else:
         janela["alerta"].update("Digite apenas números")

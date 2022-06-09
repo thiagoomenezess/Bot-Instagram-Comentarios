@@ -72,7 +72,7 @@ def navegar_pagina_pessoa_comentar(pagina, lista_de_quem_curtiu_com_tratamento, 
         except IndexError:
             pass
         # pagina.locator('//*[@aria-label="Adicione um comentário..."]').click()
-        comentar(pagina, comentario)
+        comentar(pagina, random.choice(comentario))
 
 def comentar(pagina, comentario):
     try:
