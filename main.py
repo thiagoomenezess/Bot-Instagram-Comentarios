@@ -41,10 +41,10 @@ while True:
         tempo = 30
 
         with sync_playwright() as p:
-            navegador = p.chromium.launch(channel="chrome", headless=False)
+            navegador = p.chromium.launch_persistent_context("user_data_dir", headless=False)
             pagina = navegador.new_page()
 
-            f.login_automatico(tempo, pagina, login, senha)
+            # f.login_automatico(tempo, pagina, login, senha)
 
             pagina.goto(link)
 

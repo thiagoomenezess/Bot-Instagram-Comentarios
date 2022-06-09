@@ -1,3 +1,4 @@
+import random
 import time
 
 def extrair_links_totais(pagina, index):
@@ -62,17 +63,21 @@ def navegar_pagina_pessoa_comentar(pagina, lista_de_quem_curtiu_com_tratamento, 
         for pic in (sem_tratamento):
             if "/p/" in pic:
                 com_tratamento.append(pic)
-        time.sleep(1)
+        time.sleep(2)
         # print(com_tratamento)
         # pagina.locator('//*[@aria-label="Adicione um comentário..."]').click()
-
-        pagina.goto('https://www.instagram.com{}'.format(com_tratamento[0]))
-        time.sleep(1)
+        try:
+            pagina.goto('https://www.instagram.com{}'.format(com_tratamento[0]))
+            time.sleep(1)
+        except IndexError:
+            pass
+        # pagina.locator('//*[@aria-label="Adicione um comentário..."]').click()
         comentar(pagina, comentario)
 
 def comentar(pagina, comentario):
     try:
-        pagina.fill('//*[@aria-label="Adicione um comentário..."]', comentario)
+        #O comando type faz com que o sistema digite tecla por tecla, simulando uma reação mais humana
+        pagina.type('//*[@aria-label="Adicione um comentário..."]', comentario, delay=100)
         pagina.keyboard.down("Enter")
         time.sleep(1)
     except:
