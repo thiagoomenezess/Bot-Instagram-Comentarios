@@ -40,12 +40,19 @@ while True:
         conta_pessoal_para_evitar_erro = valores["conta_erro"]
         rolar_para_baixo = int(valores["paginas"])
         comentario1 = valores["comentario1"]
-        comentario2 = valores["comentario2"]
-        comentario3 = valores["comentario3"]
-        comentarios = [comentario1, comentario2, comentario3]
+        comentarios = [comentario1]
+        if valores["comentario2"] != "":
+            comentario2 = valores["comentario2"]
+            comentarios.append(comentario2)
+        elif valores["comentario3"] != "":
+            comentario3 = valores["comentario3"]
+            comentarios.append(comentario3)
+
+
         tempo = 30
         with sync_playwright() as p:
-            navegador = p.chromium.launch(channel= "Chrome", headless=False)
+            navegador = p.chromium.launch(channel="chrome", headless=False)
+
             pagina = navegador.new_page()
 
             f.login_automatico(tempo, pagina, login, senha)
