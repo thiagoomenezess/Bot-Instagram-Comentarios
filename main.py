@@ -33,14 +33,24 @@ while True:
     if evento == sg.WIN_CLOSED or evento == "SAIR":
         break
 
+    # Tratar conta pessoal, retirando '@' caso o usuário digite
+    conta_pessoal = valores["conta_erro"]
+    conta_tratada = ""
+    if '@' in conta_pessoal:
+        conta_tratada = conta_pessoal.replace("@", "")
+        # print(conta_tratada)
+
+    # Início do programa, com a condicional de clicar em Começar e de digitar um número inteiro no campo de páginas
     if evento == "COMEÇAR" and f.isnumber(valores["paginas"]) == True:
         login = valores["login"]
         senha = valores["senha"]
         link = valores["link"]
-        conta_pessoal_para_evitar_erro = valores["conta_erro"]
+        # conta_pessoal_para_evitar_erro = valores["conta_erro"]
+        conta_pessoal_para_evitar_erro = conta_tratada
         rolar_para_baixo = int(valores["paginas"])
         comentario1 = valores["comentario1"]
         comentarios = [comentario1]
+
         if valores["comentario2"] != "":
             comentario2 = valores["comentario2"]
             comentarios.append(comentario2)
@@ -48,11 +58,11 @@ while True:
             comentario3 = valores["comentario3"]
             comentarios.append(comentario3)
 
-
+        sg.popup('***ATENÇÃO*** após clicar em OK, você terá 30 segundos caso possua verificação em 2 etapas')
         tempo = 30
+
         with sync_playwright() as p:
             navegador = p.chromium.launch(channel="chrome", headless=False)
-
             pagina = navegador.new_page()
 
             f.login_automatico(tempo, pagina, login, senha)
@@ -82,3 +92,4 @@ while True:
 
     else:
         janela["alerta"].update("Digite apenas números")
+        sg.popup('Coloque apenas números no campo destacado')
